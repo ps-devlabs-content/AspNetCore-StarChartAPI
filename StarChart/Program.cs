@@ -1,18 +1,14 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿
+using Microsoft.EntityFrameworkCore;
+using StarChart.Data;
 
-namespace StarChart
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
+var builder = WebApplication.CreateBuilder(args);
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
-    }
-}
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("StarChart"));
+var app = builder.Build();
+
+app.MapControllers();
+
+app.Run();
