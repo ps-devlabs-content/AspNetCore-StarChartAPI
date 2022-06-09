@@ -1,0 +1,70 @@
+[
+  {
+    "content_id": "f2b64070-5d3c-4dbb-8358-8a263764e79b",
+    "content_name": "Add Controller Services in Program.cs",
+    "tasks": [
+      {
+        "description": "1.1 - Add AddControllers Call to builder.Services",
+        "contents": "In `Program.cs` after initializing the builder call the `AddControllers` method on `builder.Services` to add support for `Controllers`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "1.1 - Add API Controller Services in Program.cs",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddControllersInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "1.2 - Add AddDbContext Call to ConfigureServices",
+        "contents": "In the `Program.cs`file call `AddDbContext<ApplicationDbContext>` on `builder.Services` with the argument `options => options.UseInMemoryDatabase(\"StarChart\")` to point EntityFramework to the application's `DbContext`. (Note: You will need to add a `using` directives for `StarChart.Data` and `Microsoft.EntityFrameworkCore`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "1.2 - Add AddDbContext Call to ConfigureServices",
+            "command": "xunit -k @call-adddbcontext-in-configureservices",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddApplicationDbContextInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "1.3 - Add Call to UseMvc to Configure",
+        "contents": "In `Startup.cs`'s `Configure` method add a call to `UseMvc` method on `app`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "1.3 - Add Call to `MapControllers` on `App` in Program.cs",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallMapControllersInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "name": "Add Controller Services in Program.cs",
+        "blocks": [
+          {
+            "type": "markdown",
+            "contents": "Configure your application to use API Controllers as well as an-in memory database using EntityFramework.\n\nIf you have any questions you can reference the `CompletedExercise` folder\n\n> Note: Please wait to run `Checks` until the `Terminal` says \n> ```\n> Ready to Run Checks\n> ```"
+          },
+          {
+            "type": "task",
+            "contents": "1.1 - Add AddControllers Call to builder.Services"
+          },
+          {
+            "type": "task",
+            "contents": "1.2 - Add AddDbContext Call to ConfigureServices"
+          },
+          {
+            "type": "task",
+            "contents": "1.3 - Add Call to UseMvc to Configure"
+          }
+        ]
+      }
+    ]
+  }
+]
