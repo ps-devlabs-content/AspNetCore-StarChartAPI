@@ -1,0 +1,70 @@
+[
+  {
+    "content_id": "604965c0-1e12-419f-b58b-e5aa99bf5d78",
+    "content_name": "Create CelestialObjectController's Get Actions",
+    "tasks": [
+      {
+        "description": "4.1 - Create GetById Action",
+        "contents": "In the `CelestialObjectController` create a new method `GetById`  - This method should have a return type of `IActionResult` - This method should accept a parameter of type `int` named `id`. - This method should have an `HttpGet` attribute with an value of `\"{id:int}\"` and the `Name` property set to `\"GetById\"`. - This method should return `NotFound()` when there is no `CelestialObject` with an `Id` property that matches the parameter. - This method should also set the `Satellites` property to any `CelestialObject`s who's `OrbitedObjectId` is the current `CelestialObject`'s `Id`. - This method should return an `Ok` with a value of the `CelestialObject` whose `Id` property matches the `id` parameter.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "4.1 - Create GetById Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateGetActionsTests.CreateGetByIdActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "4.2 - Create GetByName Action",
+        "contents": "Create the `GetByName` method  - This method should have a return type of `IActionResult`. - This method should accept a parameter of type `string` named `name`. - This method should have an `HttpGet` attribute with a value of `\"{name}\"`. - This method should return `NotFound()` when there is no CelestialObject with a `Name` property that matches the `name` parameter. - This method should also set the `Satellites` property for each returned `CelestialObject` to any `CelestialObject`s who's `OrbitedObjectId` is the current `CelestialObject`'s `Id`. - This method should return an `Ok` with a value of all `CelestialObject`s whose `Name` property matches the `name` parameter.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "4.2 - Create GetByName Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetByNameActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "4.3 - Create GetAll Action",
+        "contents": "Create the `GetAll` method  - This method should have a return type of `IActionResult`. - This method should also set the `Satellites` property for each of the `CelestialObject`s returned. - This method should have an `HttpGet` attribute. - This method should return `Ok` with a value of all `CelestialObjects`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "4.3 - Create GetAll Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetAllActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "name": "Create CelestialObjectController's Get Actions",
+        "blocks": [
+          {
+            "type": "markdown",
+            "contents": "Create the CelestialObjectController's GetById, GetByName, and GetAll actions with the appropriate HttpVerbs.\n\nIf you have any questions you can reference the `CompletedExercise` folder\n\n> Note: Please wait to run `Checks` until the `Terminal` says \n> ```\n> Ready to Run Checks\n> ```"
+          },
+          {
+            "type": "task",
+            "contents": "4.1 - Create GetById Action"
+          },
+          {
+            "type": "task",
+            "contents": "4.2 - Create GetByName Action"
+          },
+          {
+            "type": "task",
+            "contents": "4.3 - Create GetAll Action"
+          }
+        ]
+      }
+    ]
+  }
+]
