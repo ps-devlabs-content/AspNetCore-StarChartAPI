@@ -11,7 +11,7 @@
             "type": "CustomTest",
             "description": "1.1 - Add API Controller Services in Program.cs",
             "command": "bash {{ test }}",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddControllersInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddControllersInProgramTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
@@ -24,7 +24,7 @@
             "type": "CustomTest",
             "description": "1.2 - Add AddDbContext Call to ConfigureServices",
             "command": "xunit -k @call-adddbcontext-in-configureservices",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddApplicationDbContextInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddApplicationDbContextInProgramTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
@@ -37,7 +37,7 @@
             "type": "CustomTest",
             "description": "1.3 - Add Call to `MapControllers` on `App` in Program.cs",
             "command": "bash {{ test }}",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallMapControllersInProgramTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallMapControllersInProgramTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
