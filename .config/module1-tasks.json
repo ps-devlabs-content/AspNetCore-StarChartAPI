@@ -23,7 +23,7 @@
           {
             "type": "CustomTest",
             "description": "1.2 - Add AddDbContext Call to ConfigureServices",
-            "command": "xunit -k @call-adddbcontext-in-configureservices",
+            "command": "bash {{ test }}",
             "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CallAddApplicationDbContextInProgramTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
