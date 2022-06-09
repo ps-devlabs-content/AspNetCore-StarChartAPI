@@ -1,0 +1,87 @@
+[
+  {
+    "content_id": "e767aa98-13ef-4119-91da-71d0fcb8b1df",
+    "content_name": "Create The CelestialObjectController Class",
+    "tasks": [
+      {
+        "description": "3.1 - Create CelestialObjectController Class",
+        "contents": "Create a new class `CelestialObjectController` in the `Controllers` folder that inherits the `ControllerBase` class. If any actions are generated automatically for you they should be removed. (Note: you will need to add a `using` directive for `Microsoft.AspNetCore.Mvc`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "3.1 - Create CelestialObjectController Class",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateControllerTests.CreateControllerTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "3.2 - Add Route and ApiController Attributes",
+        "contents": "Add a `Route` attribute with a value of `\"\"` and `ApiController` attribute to the `CelestialObjectController` class.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "3.2 - Add Route and ApiController Attributes",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateControllerTests.AddAttributesToControllerTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "3.3 - Add ApplicationDbContext Field",
+        "contents": "Create a new `private` `readonly` field of type `ApplicationDbContext` named `_context`. (Note: you will need to add a `using` directive for `StarChart.Data`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "3.3 - Add ApplicationDbContext Field",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateControllerTests.CreatePrivatePropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "3.4 - Crete CelestialObjectController Constructor",
+        "contents": "Create a constructor that accepts a parameter of type `ApplicationDbContext` and sets the `_context` field using the provided parameter.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "3.4 - Crete CelestialObjectController Constructor",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateControllerTests.CreateConstructorTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "name": "Create The CelestialObjectController Class",
+        "blocks": [
+          {
+            "type": "markdown",
+            "contents": "Create the CelestialObjectController class and configure and setup a Route as well as set it up to dependency inject our ApplicationDbContext.\n\nIf you have any questions you can reference the `CompletedExercise` folder\n\n> Note: Please wait to run `Checks` until the `Terminal` says \n> ```\n> Ready to Run Checks\n> ```"
+          },
+          {
+            "type": "task",
+            "contents": "3.1 - Create CelestialObjectController Class"
+          },
+          {
+            "type": "task",
+            "contents": "3.2 - Add Route and ApiController Attributes"
+          },
+          {
+            "type": "task",
+            "contents": "3.3 - Add ApplicationDbContext Field"
+          },
+          {
+            "type": "task",
+            "contents": "3.4 - Crete CelestialObjectController Constructor"
+          }
+        ]
+      }
+    ]
+  }
+]
