@@ -1,0 +1,87 @@
+[
+  {
+    "content_id": "0e0bf673-e893-43a9-b58d-3092c1be29ce",
+    "content_name": "Create CelestialObjectController's Post, Put, Patch, and Delete Actions",
+    "tasks": [
+      {
+        "description": "5.1 - Create the Create Method",
+        "contents": "In the `CelestialObjectController` class create the `Create` method  - This method should have a return type of `IActionResult`. - This method should accept a parameter of type `[FromBody]CelestialObject`. - This method should have an `HttpPost` attribute. - This method should add the provided `CelestialObject` to the `CelestialObjects` `DbSet` then call `SaveChanges`. - This method should return a `CreatedAtRoute` with the arguments    - `\"GetById\"`   - A new `object` with an `id` of the `CelestialObject`'s `Id`. (Note: use the `new {  }` format.)   - The provided `CelestialObject`. (Note: You will need to add a `using` directive for `StarChart.Models`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "5.1 - Create the Create Method",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateWriteModifyActionsTests.CreateCreateActionTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "5.2 - Create Update Action",
+        "contents": "Create the `Update` method  - This method should have a return type of `IActionResult`. - This method should accept a parameter of type `int` named `id` and a parameter of type `CelestialObject`. - This method should have the `HttpPut` attribute with a value of `\"{id}\"`. - This method should locate the `CelestialObject` with an `Id` that matches the provided `int` parameter.  - If no match is found return `NotFound()`. - If a match is found set it's `Name`, `OrbitalPeriod`, and `OrbitedObjectId` properties based on the provided `CelestialObject` parameter. Call `Update` on the `CelestialObjects` `DbSet` with an argument of the updated `CelestialObject`, and then call `SaveChanges`. - This method should return `NoContent()`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "5.2 - Create Update Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateWriteModifyActionsTests.CreateUpdateActionTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "5.3 - Create RenameObject Action",
+        "contents": "Create the `RenameObject` method  - This method should have a return type of `IActionResult`. - This method should accept a parameter of type `int` named `id` and a parameter of type `string` named `name`. - This method should have the `HttpPatch` attribute with an argument of `\"{id}/{name}\"`. - This method should locate the `CelestialObject` with an `Id` that matches the provided `int` parameter.    - If no match is found return `NotFound()`.   - If a match is found set it's `Name` property to the provided `string` parameter. Then call `Update` on the `CelestialObjects` `DbSet` with an argument of the updated `CelestialObject`, and then call `SaveChanges`. - This method should return `NoContent()`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "5.3 - Create RenameObject Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateWriteModifyActionsTests.CreateUpdateNameActionTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "5.4 - Create Delete Action",
+        "contents": "Create the `Delete` method  - This method should have a return type of `IActionResult`. - This method should accept a parameter of type `int` named `id`. - This method should have the `HttpDelete` attribute with an argument of `\"{id}\"`. - This method should get a List of all `CelestialObject`s who either have an `Id` or `OrbitedObject` with an `Id` that matches the provided parameter.  - If there are no matches it should return `NotFound()`. - If there are matching `CelestialObjects` call `RemoveRange` on the `CelestialObjects` `DbSet` with an argument of the list of matching `CelestialObject`s. Then call `SaveChanges`. - This method should return `NoContent()`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "5.4 - Create Delete Action",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateWriteModifyActionsTests.CreateDeleteActionTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "name": "Create CelestialObjectController's Post, Put, Patch, and Delete Actions",
+        "blocks": [
+          {
+            "type": "markdown",
+            "contents": "Create CelestialObjectController's Create, Update, UpdateName, and Delete actions with the appropriate HttpVerbs.\n\nIf you have any questions you can reference the `CompletedExercise` folder\n\n> Note: Please wait to run `Checks` until the `Terminal` says \n> ```\n> Ready to Run Checks\n> ```"
+          },
+          {
+            "type": "task",
+            "contents": "5.1 - Create the Create Method"
+          },
+          {
+            "type": "task",
+            "contents": "5.2 - Create Update Action"
+          },
+          {
+            "type": "task",
+            "contents": "5.3 - Create RenameObject Action"
+          },
+          {
+            "type": "task",
+            "contents": "5.4 - Create Delete Action"
+          }
+        ]
+      }
+    ]
+  }
+]
