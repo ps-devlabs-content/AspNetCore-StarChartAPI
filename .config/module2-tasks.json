@@ -1,0 +1,138 @@
+[
+  {
+    "content_id": "4997f26b-8d58-46e6-a938-4af685179d04",
+    "content_name": "Create CelestialObject Model",
+    "tasks": [
+      {
+        "description": "2.1 - Create CelestialObject Model",
+        "contents": "Create a new `public` class `CelestialObject` in the `Models` directory. ",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.1 - Create CelestialObject Model",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.CreateCelestialObjectModelTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.2 - Add Id Property",
+        "contents": "Create a new `public` property of type `int` named `Id`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.2 - Add Id Property",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddIdPropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.3 - Add Name Property",
+        "contents": "Create a new `public` property of type `string` named `Name`. This property should have the `Required` attribute. (Note: you will need to add a `using` directive for `System.ComponentModel.DataAnnotations`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.3 - Add Name Property",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddNamePropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.4 - Add OrbitedObjectId Property",
+        "contents": "Create a new `public` property of type `int?` named `OrbitedObjectId`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.4 - Add OrbitedObjectId Property",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddOrbitedObjectPropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.5 - Add Satellites Property",
+        "contents": "Create a new `public` property of type `List<CelestialObject>` named `Satellites`. This property should have the `NotMapped` attribute. (Note: you will need to add `using` directives for `System.Collections.Generic` and `System.ComponentModel.DataAnnotations.Schema`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.5 - Add Satellites Property",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddSatellitesPropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.6 - Add OrbitalPeriod Property",
+        "contents": "Create a new `public` property of type `TimeSpan` named `OrbitalPeriod`.",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.6 - Add OrbitalPeriod Property",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddOrbitalPeriodPropertyTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      },
+      {
+        "description": "2.7 - Add CelestialObjects To ApplicationDbContext",
+        "contents": "In the `ApplicationDbContext` class, located in the `Data` folder, create a new `public` property of type `DbSet<CelestialObject>` named `CelestialObjects`. (Note: you will need to add a `using` directive for `StarChart.Models`)",
+        "checks": [
+          {
+            "type": "CustomTest",
+            "description": "2.7 - Add CelestialObjects To ApplicationDbContext",
+            "command": "bash {{ test }}",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateModelTests.AddCelestialObjectToApplicationDbContextTest\\\" | ./Exercise/.config/process.awk",
+            "failed_pattern": "Failed!"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "name": "Create CelestialObject Model",
+        "blocks": [
+          {
+            "type": "markdown",
+            "contents": "Create the CelestialObject model and add to the ApplicationDbContext to make it accessible to EntityFramework.\n\nIf you have any questions you can reference the `CompletedExercise` folder\n\n> Note: Please wait to run `Checks` until the `Terminal` says \n> ```\n> Ready to Run Checks\n> ```"
+          },
+          {
+            "type": "task",
+            "contents": "2.1 - Create CelestialObject Model"
+          },
+          {
+            "type": "task",
+            "contents": "2.2 - Add Id Property"
+          },
+          {
+            "type": "task",
+            "contents": "2.3 - Add Name Property"
+          },
+          {
+            "type": "task",
+            "contents": "2.4 - Add OrbitedObjectId Property"
+          },
+          {
+            "type": "task",
+            "contents": "2.5 - Add Satellites Property"
+          },
+          {
+            "type": "task",
+            "contents": "2.6 - Add OrbitalPeriod Property"
+          },
+          {
+            "type": "task",
+            "contents": "2.7 - Add CelestialObjects To ApplicationDbContext"
+          }
+        ]
+      }
+    ]
+  }
+]
