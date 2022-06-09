@@ -11,7 +11,7 @@
             "type": "CustomTest",
             "description": "4.1 - Create GetById Action",
             "command": "bash {{ test }}",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateGetActionsTests.CreateGetByIdActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.CreateGetActionsTests.CreateGetByIdActionTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
@@ -24,7 +24,7 @@
             "type": "CustomTest",
             "description": "4.2 - Create GetByName Action",
             "command": "bash {{ test }}",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetByNameActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetByNameActionTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
@@ -37,7 +37,7 @@
             "type": "CustomTest",
             "description": "4.3 - Create GetAll Action",
             "command": "bash {{ test }}",
-            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetAllActionTest\\\" | ./Exercise/.config/process.awk\"",
+            "contents": "dotnet test ./Exercise --filter \\\"FullyQualifiedName=StarChartTests.ConfigureMiddlewareTests.CreateGetAllActionTest\\\" | ./Exercise/.config/process.awk",
             "failed_pattern": "Failed!"
           }
         ]
